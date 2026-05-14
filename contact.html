@@ -3,53 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Dove Nest Goa</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; margin-top: 50px; }
-        .info-card { margin-bottom: 20px; padding: 30px; }
-        .map-frame { width: 100%; height: 400px; border-radius: var(--radius-lg); border: 1px solid var(--glass-border); filter: grayscale(1) invert(1); opacity: 0.7; }
-        input, textarea, select {
-            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-            padding: 15px; color: white; border-radius: var(--radius-sm); margin-bottom: 20px; font-family: var(--font-body);
-        }
-        input:focus { border-color: var(--gold); outline: none; }
-    </style>
+    <title>Find the Nest | Dove Nest Goa</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar glass scrolled">
-        <a href="index.html" class="nav-brand">DOVE NEST</a>
-        <button class="hamburger">☰</button>
-    </nav>
+    <div class="bg-engine"><div class="glow-orb"></div></div>
 
-    <section class="container" style="padding-top: 150px;">
-        <div class="reveal">
-            <span class="subtitle">Get In Touch</span>
-            <h1>Let's Plan Your <span class="gold-text">Experience</span></h1>
+    <main class="container" style="padding-top: 150px;">
+        <div class="reveal" style="text-align: center; margin-bottom: 80px;">
+            <h1 class="gold-gradient">The Destination.</h1>
+            <p style="color: var(--mint-glow);">doveneststcruz@gmail.com</p>
         </div>
 
-        <div class="contact-wrapper">
-            <div class="reveal">
-                <div class="luxury-card glass info-card">
-                    <h4 class="gold-text">Location</h4>
-                    <p>Bairro Band, St. Cruz, Goa 403005</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div class="glass-panel reveal">
+                <h3 style="color: var(--tropical-green); margin-bottom: 20px;">ST. CRUZ, GOA</h3>
+                <p style="line-height: 2;">
+                    Bairro Bandh, H 82,<br>
+                    Santa Cruz, Goa 403005<br><br>
+                    <strong>Direct:</strong> +91 98221 82917<br>
+                    <strong>Email:</strong> doveneststcruz@gmail.com
+                </p>
+                <div style="margin-top: 40px;">
+                    <a href="https://maps.app.goo.gl/YourActualGoogleMapsLink" target="_blank" class="btn-haptic" style="font-size: 0.6rem;">Open in Maps</a>
                 </div>
-                <div class="luxury-card glass info-card">
-                    <h4 class="gold-text">Direct Line</h4>
-                    <p>+91 98221 82917</p>
-                </div>
-                <a href="https://wa.me/919822182917" class="btn-primary" style="width: 100%; text-align: center;">Chat on WhatsApp</a>
             </div>
 
-            <div class="luxury-card glass reveal">
-                <form id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <textarea placeholder="Tell us about your event..." rows="5"></textarea>
-                    <button type="submit" class="btn-primary">Send Inquiry</button>
-                </form>
+            <div class="reveal" style="height: 450px; border-radius: 24px; overflow: hidden; border: 1px solid var(--glass-border); filter: grayscale(1) invert(1) contrast(1.2);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.75!2d73.85!" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
             </div>
         </div>
-    </section>
+    </main>
+
+    <script src="js/metamorphosis.js"></script>
 </body>
 </html>
