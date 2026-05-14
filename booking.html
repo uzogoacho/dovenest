@@ -3,79 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Stay | Dove Nest</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Reserve Your Oasis | Dove Nest Goa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .booking-form { max-width: 800px; margin: 100px auto; padding: 60px; }
+        input, select, textarea {
+            width: 100%; padding: 20px; margin-bottom: 25px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+            border-radius: 15px; color: var(--mint-glow); font-family: 'Outfit';
+        }
+        label { display: block; margin-bottom: 10px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--tropical-green); }
+    </style>
 </head>
 <body>
-    <nav class="navbar glass scrolled">
-        <a href="index.html" class="nav-brand">DOVE NEST</a>
+    <div class="bg-engine"><div class="glow-orb"></div></div>
+
+    <nav style="position: fixed; top: 0; width: 100%; z-index: 1000; padding: 30px 50px;">
+        <a href="index.html" style="color: var(--mint-glow); text-decoration: none; font-weight: 800;">BACK TO HOME</a>
     </nav>
 
-    <section class="container" style="padding-top: 150px; max-width: 900px;">
-        <div class="luxury-card glass reveal" style="padding: 4rem;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <span class="subtitle">Reservation</span>
-                <h2>Secure Your <span class="gold-text">Dates</span></h2>
-            </div>
-
-            <form id="bookingForm">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div>
-                        <label class="subtitle" style="font-size: 0.6rem;">Full Name</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div>
-                        <label class="subtitle" style="font-size: 0.6rem;">Phone Number</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                </div>
-
-                <label class="subtitle" style="font-size: 0.6rem;">Select Package</label>
-                <select id="package">
-                    <option value="Dayout">Dayout Package (₹400/pp)</option>
-                    <option value="Private Dayout">Private Dayout (₹8,000)</option>
-                    <option value="Private Nightout">Private Nightout (₹10,000)</option>
-                    <option value="Wedding">Wedding Venue Package</option>
-                    <option value="Corporate">Corporate Off-site</option>
-                </select>
+    <main class="container">
+        <section class="booking-form glass-panel reveal">
+            <h1 class="gold-gradient" style="font-size: 3rem; margin-bottom: 40px;">Secure the Nest.</h1>
+            
+            <form id="waBookingForm">
+                <label>Identify Yourself</label>
+                <input type="text" id="name" placeholder="Your Name" required>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div>
-                        <label class="subtitle" style="font-size: 0.6rem;">Event Date</label>
+                        <label>Preferred Date</label>
                         <input type="date" id="date" required>
                     </div>
                     <div>
-                        <label class="subtitle" style="font-size: 0.6rem;">Guest Count</label>
-                        <input type="number" id="guests" placeholder="Approx count">
+                        <label>Guest Count</label>
+                        <input type="number" id="guests" placeholder="e.g. 25" required>
                     </div>
                 </div>
 
-                <label class="subtitle" style="font-size: 0.6rem;">Dining Preference</label>
-                <select id="food">
-                    <option value="No Food">Venue Only (No Food)</option>
-                    <option value="Veg Buffet">Veg Buffet Integration</option>
-                    <option value="Non-Veg Buffet">Non-Veg Buffet Integration</option>
-                    <option value="BBQ Setup">Live BBQ Setup</option>
+                <label>Select Your Experience</label>
+                <select id="package">
+                    <option value="Private Dayout">Private Dayout (₹8,000)</option>
+                    <option value="Private Nightout">Private Nightout (₹10,000)</option>
+                    <option value="Dove's Feast">Full Catering Package</option>
+                    <option value="Custom Event">Custom Wedding/Event</option>
                 </select>
 
-                <button type="submit" class="btn-primary" style="width: 100%; padding: 20px; font-size: 1rem; margin-top: 20px;">Confirm & Send to WhatsApp</button>
+                <label>Your Vision</label>
+                <textarea id="notes" rows="4" placeholder="Any special requirements?"></textarea>
+
+                <button type="submit" class="btn-haptic" style="width: 100%; margin-top: 20px;">Send Secure Inquiry</button>
             </form>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script>
-        document.getElementById('bookingForm').addEventListener('submit', (e) => {
+        document.getElementById('waBookingForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
-            const pkg = document.getElementById('package').value;
             const date = document.getElementById('date').value;
             const guests = document.getElementById('guests').value;
-            const food = document.getElementById('food').value;
+            const pkg = document.getElementById('package').value;
+            const notes = document.getElementById('notes').value;
 
-            const message = `Hello Dove Nest! I'd like to book:\n\nName: ${name}\nPackage: ${pkg}\nDate: ${date}\nGuests: ${guests}\nDining: ${food}`;
-            window.open(`https://wa.me/919822182917?text=${encodeURIComponent(message)}`, '_blank');
+            const text = `*NEW NEST RESERVATION*%0A%0A*Client:* ${name}%0A*Date:* ${date}%0A*Guests:* ${guests}%0A*Package:* ${pkg}%0A*Notes:* ${notes}`;
+            window.open(`https://wa.me/919822182917?text=${text}`, '_blank');
         });
     </script>
-    <script src="app.js"></script>
+    <script src="js/metamorphosis.js"></script>
 </body>
 </html>
