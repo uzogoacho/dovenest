@@ -1,0 +1,78 @@
+/* METAMORPHOSIS DESIGN SYSTEM */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&family=Playfair+Display:ital,wght@1,600&display=swap');
+
+:root {
+    --deep-black: #05070a;
+    --ocean-blue: #005f73;
+    --tropical-green: #0a9396;
+    --mint-glow: #94d2bd;
+    --text-silk: #e9d8a6;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(148, 210, 189, 0.15);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+    background-color: var(--deep-black);
+    color: var(--text-silk);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    cursor: crosshair;
+}
+
+/* The Metamorphosis Background */
+.bg-engine {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, #001219, var(--deep-black));
+}
+
+.glow-orb {
+    position: absolute;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, var(--ocean-blue) 0%, transparent 70%);
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: drift 20s infinite alternate var(--ease);
+}
+
+@keyframes drift {
+    0% { transform: translate(-10%, -10%) scale(1); }
+    100% { transform: translate(20%, 10%) scale(1.2); }
+}
+
+/* Cinematic Typography */
+h1 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; font-size: clamp(3rem, 10vw, 8rem); line-height: 0.9; }
+.gold-gradient { background: linear-gradient(to right, var(--mint-glow), var(--tropical-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Haptic Component */
+.btn-haptic {
+    position: relative;
+    padding: 20px 45px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: var(--mint-glow);
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    font-size: 0.7rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--ease) 0.4s;
+    backdrop-filter: blur(10px);
+}
+
+.btn-haptic:hover {
+    background: var(--mint-glow);
+    color: var(--deep-black);
+    box-shadow: 0 0 50px rgba(148, 210, 189, 0.4);
+    transform: scale(1.05);
+}
+
+/* Scroll Reveal */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.2s var(--ease), transform 1.2s var(--ease); }
+.reveal.active { opacity: 1; transform: translateY(0); }
