@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability | Dove Nest Luxury Venue</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .calendar-wrapper { max-width: 1000px; margin: 0 auto; }
+        .calendar-glass {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+        .cal-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .month-display { font-family: var(--font-head); font-size: 2.5rem; color: var(--gold); }
+        
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+        .day-name { color: var(--gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; padding-bottom: 10px; }
+        
+        .date-cell {
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.02);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+        }
+        .date-cell:hover:not(.booked) { border-color: var(--gold); background: var(--gold-glow); }
+        .date-cell.booked { opacity: 0.3; cursor: not-allowed; background: transparent; }
+        .date-cell.booked::after {
+            content: ''; position: absolute; width: 80%; height: 1px; background: var(--text-muted); transform: rotate(-45deg);
+        }
+        .date-cell.limited { border-color: #d4a037; background: rgba(212, 175, 55, 0.05); }
+        .date-cell.limited::before {
+            content: ''; position: absolute; top: 5px; right: 5px; width: 6px; height: 6px; background: #d4a037; border-radius: 50%;
+        }
+        .date-cell.today { border: 2px solid var(--gold); color: var(--gold); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <nav class="navbar glass scrolled">
+        <a href="index.html" class="nav-brand">DOVE NEST</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="availability.html" class="gold-text">Availability</a></li>
+            <li><a href="booking.html" class="btn-primary">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <section class="container" style="padding-top: 150px;">
+        <div class="calendar-wrapper reveal">
+            <div class="calendar-glass">
+                <div class="cal-nav">
+                    <button class="btn-primary" id="prevMonth" style="padding: 10px 20px;">&larr;</button>
+                    <h2 class="month-display" id="monthName">October 2026</h2>
+                    <button class="btn-primary" id="nextMonth" style="padding: 10px 20px;">&rarr;</button>
+                </div>
+
+                <div class="days-grid" id="calendarGrid">
+                    </div>
+
+                <div class="legend" style="display: flex; gap: 30px; justify-content: center; margin-top: 40px; font-size: 0.8rem; color: var(--text-muted);">
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="width:10px; height:10px; border: 1px solid var(--glass-border); border-radius: 50%;"></span> Available</div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="width:10px; height:10px; background: #d4a037; border-radius: 50%;"></span> Limited</div>
+                    <div style="display: flex; align-items: center; gap: 10px;"><span style="width:10px; height:10px; background: rgba(255,255,255,0.2); border-radius: 50%; opacity: 0.5;"></span> Booked</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="calendar-engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
